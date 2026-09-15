@@ -1,14 +1,15 @@
-# Maya Beauty Salon & Hair — Website Only
+# MAYA Beauty Salon & Hair — Exact Reference Website
 
-This version is intentionally **website-only**. Telegram/database synchronization will be added later.
+This is the website-only build. It is intentionally designed to closely reproduce the supplied black/gold/white reference image: same visual hierarchy, navigation, hero, six service cards, compact booking panel, gallery, reviews and footer.
 
-## Deploy on Render
-Create a **Static Site** and point it at this repository. No build command is needed. Publish directory: `.`
+## Deploy
+Use Render **Static Site**:
+- Build Command: leave blank
+- Publish Directory: `.`
+- No Flask/Python/Gunicorn is needed.
 
-The included `render.yaml` can also describe the static service.
+## Owner pictures
+The Gallery has an Owner: Add Pictures control. It previews and stores selected pictures in the browser's localStorage. A real multi-device owner upload system requires the backend/database stage, which can be added later together with Telegram synchronization.
 
-## Files
-- `index.html` — full homepage
-- `style.css` — luxury black/gold Ethiopian-inspired design + animations
-- `app.js` — scroll animation and appointment demo
-- `assets/` — generated salon visual assets
+## Social icons
+The social buttons are placeholders until the owner supplies the real Instagram, TikTok, Facebook, Telegram and WhatsApp URLs.
