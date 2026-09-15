@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff0a1"/><stop offset=".45" stop-color="#d7a52b"/><stop offset="1" stop-color="#fff2aa"/></linearGradient></defs>
+<rect width="900" height="300" fill="#080705"/>
+<g fill="none" stroke="url(#g)" stroke-width="4">
+<path d="M450 34c-76 0-138 61-138 137s62 96 138 96 138-20 138-96S526 34 450 34Z"/>
+<path d="M365 172c22-72 47-103 85-103s63 31 85 103"/>
+<path d="M394 130h112"/>
+</g>
+<text x="450" y="150" text-anchor="middle" fill="url(#g)" font-family="Georgia,serif" font-size="92" font-weight="700" letter-spacing="12">MAYA</text>
+<text x="450" y="193" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" letter-spacing="7">BEAUTY SALON &amp; HAIR</text>
+<text x="450" y="228" text-anchor="middle" fill="#d7bd7a" font-family="Georgia,serif" font-size="18" font-style="italic">Look Good • Feel Good • Be You</text>
+</svg>

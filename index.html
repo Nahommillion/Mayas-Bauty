@@ -1,113 +1,71 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MAYA Beauty Salon & Hair</title>
-<meta name="description" content="MAYA Beauty Salon & Hair — Look Good • Feel Good • Be You.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Playball&display=swap" rel="stylesheet">
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAYA • Luxury Beauty Salon & Hair</title>
+<meta name="description" content="MAYA Beauty Salon & Hair — Addis Ababa. Luxury hair, nails, makeup, lashes, facial and spa.">
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="ethio-strip left"></div><div class="ethio-strip right"></div>
-
-<header class="topbar">
-  <a href="#home" class="logo">
-    <span class="crest">♛</span>
-    <span class="logo-main">MAYA <small>BEAUTY SALON &amp; HAIR</small><em>Look Good&nbsp; • &nbsp;Feel Good&nbsp; • &nbsp;Be You</em></span>
-  </a>
-  <button class="hamburger" aria-label="Menu">☰</button>
-  <nav>
-    <a class="active" href="#home">Home</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About Us</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-  </nav>
-  <div class="top-actions">
-    <button class="language">🇪🇹 <b>EN</b>⌄</button>
-    <a class="gold-outline" href="#booking">▣ &nbsp; Book Appointment</a>
-  </div>
+</head><body>
+<div class="flag-edge left"></div><div class="flag-edge right"></div>
+<header class="nav">
+  <a class="brand" href="#home"><img src="assets/maya-luxury-logo.svg" alt="MAYA Beauty Salon & Hair luxury logo"></a>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+  <nav id="navlinks"><a class="active" href="#home">HOME</a><a href="#services">SERVICES</a><a href="#gallery">GALLERY</a><a href="#about">ABOUT US</a><a href="#reviews">REVIEWS</a><a href="#contact">CONTACT</a></nav>
+  <div class="navright"><button>🇪🇹 EN⌄</button><a class="outline" href="#booking">📅 BOOK APPOINTMENT</a></div>
 </header>
 
+<main>
 <section class="hero" id="home">
-  <div class="hero-bg"></div><div class="hero-shade"></div>
-  <div class="hero-copy">
-    <div class="welcome">Welcome to</div>
-    <h1>MAYA</h1>
-    <h2>♛<br>BEAUTY SALON &amp; HAIR</h2>
-    <div class="amharic">የእርስዎ ውበት፣ የእኛ ስራ</div>
-    <p>Premium beauty services, luxurious care,<br>for your unique beauty.</p>
-    <a class="gold-btn" href="#booking">▣ &nbsp; Book Your Appointment &nbsp; →</a>
+  <div class="heroimage"></div><div class="herooverlay"></div>
+  <div class="particles" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>·</i><i>✧</i><i>✦</i></div>
+  <div class="herocopy">
+    <div class="script">Welcome to</div><h1>MAYA</h1><div class="crown">♛</div><h2>BEAUTY SALON &amp; HAIR</h2>
+    <div class="am">የእርስዎ ውበት፣ የእኛ ስራ</div>
+    <p>Premium beauty services • luxurious care<br>for your unique beauty.</p>
+    <a class="gold" href="#booking">📅 &nbsp; BOOK YOUR APPOINTMENT &nbsp; →</a>
   </div>
-  <div class="quote">Beauty<br><i>is a form of</i><br>self-respect<div>♥</div></div>
-  <div class="socials">
-    <a href="#" title="Instagram">◎</a><a href="#" title="TikTok">♪</a><a href="#" title="Facebook">f</a><a href="#" title="Telegram">➤</a><a href="#" title="WhatsApp">◔</a>
-  </div>
-  <span class="spark a">✦</span><span class="spark b">✧</span><span class="spark c">✦</span>
+  <div class="heroquote">Beauty<br><em>is a form of</em><br>self-respect <b>♥</b></div>
+  <div class="socialrail"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="TikTok">♪</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Telegram">➤</a><a href="#" aria-label="WhatsApp">◔</a></div>
 </section>
 
-<section class="services" id="services">
-  <div class="heading"><span></span><h2>♛ Our Services</h2><span></span><p>BEAUTY &nbsp; • &nbsp; CARE &nbsp; • &nbsp; CONFIDENCE</p></div>
-  <div class="service-grid">
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/nails.jpg')"></div><div class="round-icon">💅</div><h3>Nails</h3><p>Manicure &nbsp; • &nbsp; Pedicure<br>Nail Art &nbsp; • &nbsp; Gel Nails</p><a href="#booking">Learn More →</a></article>
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/hair.jpg')"></div><div class="round-icon">♕</div><h3>Hair</h3><p>Human Hair &nbsp; • &nbsp; Braids<br>Styling &nbsp; • &nbsp; Wash &amp; Care</p><a href="#booking">Learn More →</a></article>
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/makeup.jpg')"></div><div class="round-icon">💄</div><h3>Makeup</h3><p>Professional Makeup<br>Bridal Makeup &nbsp; • &nbsp; Special Events</p><a href="#booking">Learn More →</a></article>
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/lashes.jpg')"></div><div class="round-icon">◉</div><h3>Lashes &amp; Brows</h3><p>Eyelash Extensions<br>Eyebrow Shaping &nbsp; • &nbsp; Tinting</p><a href="#booking">Learn More →</a></article>
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/facial.jpg')"></div><div class="round-icon">❀</div><h3>Facial &amp; Spa</h3><p>Deep Cleansing &nbsp; • &nbsp; Skin Care<br>Relaxing Spa &nbsp; • &nbsp; Massage</p><a href="#booking">Learn More →</a></article>
-    <article class="service-card"><div class="service-img" style="background-image:url('assets/extensions.jpg')"></div><div class="round-icon">♕</div><h3>Hair Extensions &amp; Wigs</h3><p>Human Hair &nbsp; • &nbsp; Wigs<br>Custom Orders &nbsp; • &nbsp; Care</p><a href="#booking">Learn More →</a></article>
+<section class="serviceSection" id="services">
+  <div class="sectionHead"><span></span><h2>♛ OUR SERVICES</h2><span></span><p>BEAUTY • CARE • CONFIDENCE</p></div>
+  <div class="serviceGrid">
+    <article class="card"><img src="assets/nails.svg"><div class="icon">💅🏾</div><h3>💅🏾 Nails</h3><p>Manicure • Pedicure<br>Nail Art • Gel Nails</p><button onclick="chooseService('Nails')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Nails',this)"></label><div class="ownerphotos" id="Nails-photos"></div></article>
+    <article class="card"><img src="assets/hair.svg"><div class="icon">💇🏾‍♀️</div><h3>💇🏾‍♀️ Hair</h3><p>Human Hair • Braids<br>Styling • Wash &amp; Care</p><button onclick="chooseService('Hair')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Hair',this)"></label><div class="ownerphotos" id="Hair-photos"></div></article>
+    <article class="card"><img src="assets/makeup.svg"><div class="icon">💄</div><h3>💄 Makeup</h3><p>Professional • Bridal<br>Special Events • Glam</p><button onclick="chooseService('Makeup')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Makeup',this)"></label><div class="ownerphotos" id="Makeup-photos"></div></article>
+    <article class="card"><img src="assets/lashes.svg"><div class="icon">👁️</div><h3>👁️ Lashes &amp; Brows</h3><p>Lash Extensions<br>Shaping • Tinting</p><button onclick="chooseService('Lashes & Brows')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Lashes',this)"></label><div class="ownerphotos" id="Lashes-photos"></div></article>
+    <article class="card"><img src="assets/spa.svg"><div class="icon">🌿</div><h3>🌿 Facial &amp; Spa</h3><p>Deep Cleansing • Skin Care<br>Relaxing Spa • Massage</p><button onclick="chooseService('Facial & Spa')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Spa',this)"></label><div class="ownerphotos" id="Spa-photos"></div></article>
+    <article class="card"><img src="assets/extensions.svg"><div class="icon">✨</div><h3>✨ Extensions &amp; Wigs</h3><p>Human Hair • Wigs<br>Custom Orders • Care</p><button onclick="chooseService('Extensions & Wigs')">BOOK THIS →</button><label class="add">＋ OWNER: ADD PHOTOS<input type="file" accept="image/*" multiple onchange="addPhotos(event,'Extensions',this)"></label><div class="ownerphotos" id="Extensions-photos"></div></article>
   </div>
 </section>
 
 <section class="booking" id="booking">
-  <div class="booking-photo" style="background-image:url('assets/salon.jpg')"></div>
-  <div class="booking-intro"><div class="booking-title">▣ &nbsp; <b>Book Your Appointment</b><small>Your Beauty, Our Priority</small></div><p>Choose your service, date, and time.<br>It's quick and easy!</p><a class="gold-btn small" href="#booking-form">▣ &nbsp; Make a Reservation &nbsp; →</a></div>
-  <form id="booking-form" class="booking-form" onsubmit="submitBooking(event)">
-    <label>Select Service<select required><option value="">Choose a service</option><option>Nails</option><option>Hair</option><option>Makeup</option><option>Lashes & Brows</option><option>Facial & Spa</option><option>Hair Extensions & Wigs</option></select></label>
-    <div class="two"><label>Date<input required type="date"></label><label>Time<select required><option value="">Select time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>01:00 PM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option><option>05:00 PM</option></select></label></div>
-    <div class="two"><label>Full Name<input required placeholder="Your full name"></label><label>Phone Number<input required placeholder="+251 ..."></label></div>
-    <label>Email (optional)<input type="email" placeholder="you@example.com"></label>
-    <button class="gold-btn full" type="submit">▣ &nbsp; Book Now</button>
-    <div id="book-message"></div>
-  </form>
-  <div class="experience">
-    <div><b>♜</b><span>Professional<br>&amp; Experienced Team</span></div><div><b>♢</b><span>Premium<br>Products</span></div><div><b>♨</b><span>Clean &amp; Safe<br>Environment</span></div><div><b>⌖</b><span>Located in<br>Addis Ababa, Ethiopia</span></div>
-    <hr><strong>“More than a salon...<br>it's a beauty experience.”</strong><div class="location">🇪🇹 &nbsp; Addis Ababa<br><small>Ethiopia</small></div>
-  </div>
+ <div class="bookingLeft"><span>📅 RESERVE YOUR BEAUTY TIME</span><h2>Book Your<br>Appointment</h2><p>Choose your service, preferred specialist, date and time. Tell us what you need and we will make your visit special. ✨</p>
+ <div class="trust"><b>✨</b> Premium products &amp; professional care<br><b>🇪🇹</b> Proudly serving Addis Ababa</div></div>
+ <form id="bookingForm" onsubmit="book(event)">
+  <div class="formTitle">YOUR BEAUTY APPOINTMENT <small>All fields marked * are required</small></div>
+  <label>Service *<select id="service" required><option value="">Choose a service</option><option>💅🏾 Nails</option><option>💇🏾‍♀️ Hair</option><option>💄 Makeup</option><option>👁️ Lashes & Brows</option><option>🌿 Facial & Spa</option><option>✨ Extensions & Wigs</option></select></label>
+  <div class="two"><label>Specific treatment *<select required><option value="">Choose treatment</option><option>Consultation</option><option>Classic</option><option>Premium</option><option>Bridal / Event</option><option>Custom</option></select></label><label>Preferred specialist<select><option>Any available specialist</option><option>MAYA Senior Artist</option><option>MAYA Beauty Specialist</option></select></label></div>
+  <div class="two"><label>Preferred date *<input id="date" type="date" required></label><label>Preferred time *<select required><option value="">Select time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>01:00 PM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option><option>05:00 PM</option></select></label></div>
+  <div class="two"><label>Full name *<input required placeholder="Your full name"></label><label>Phone / WhatsApp *<input required placeholder="+251 ..."></label></div>
+  <label>Email <input type="email" placeholder="you@example.com"></label>
+  <label>Special request / notes <textarea rows="3" placeholder="Tell us about your preferred style, color, event, allergies, etc."></textarea></label>
+  <button class="gold wide">✨ REQUEST APPOINTMENT →</button><div id="msg"></div>
+ </form>
 </section>
 
 <section class="gallery" id="gallery">
-  <div class="gallery-title">♛ <b>Our Gallery</b></div>
-  <div class="filters"><button class="chosen" data-cat="all">ALL</button><button data-cat="hair">HAIR</button><button data-cat="nails">NAILS</button><button data-cat="makeup">MAKEUP</button><button data-cat="facial">FACIAL</button><button data-cat="lashes">LASHES</button><button data-cat="extensions">EXTENSIONS</button></div>
-  <div class="gallery-row">
-    <button class="arrow">‹</button>
-    <div class="gallery-item" data-cat="hair" style="background-image:url('assets/gallery-hair.jpg')"></div>
-    <div class="gallery-item" data-cat="nails" style="background-image:url('assets/gallery-nails.jpg')"></div>
-    <div class="gallery-item" data-cat="makeup" style="background-image:url('assets/gallery-makeup.jpg')"></div>
-    <div class="gallery-item" data-cat="facial" style="background-image:url('assets/gallery-facial.jpg')"></div>
-    <div class="gallery-item" data-cat="extensions" style="background-image:url('assets/gallery-hair2.jpg')"></div>
-    <button class="arrow">›</button>
-  </div>
-  <div class="gallery-tools"><button class="gold-btn tiny" onclick="document.getElementById('owner-files').click()">＋ Owner: Add Pictures</button><input id="owner-files" type="file" accept="image/*" multiple hidden><span id="upload-note">Pictures selected here are saved in this browser for preview.</span></div>
+ <div class="sectionHead dark"><span></span><h2>📸 OUR BEAUTY GALLERY</h2><span></span><p>REAL LOOKS • REAL CONFIDENCE • MAYA MOMENTS</p></div>
+ <div class="filters"><button class="sel" data-filter="all">ALL</button><button data-filter="Hair">💇🏾‍♀️ HAIR</button><button data-filter="Nails">💅🏾 NAILS</button><button data-filter="Makeup">💄 MAKEUP</button><button data-filter="Spa">🌿 SPA</button><button data-filter="Lashes">👁️ LASHES</button><button data-filter="Extensions">✨ EXTENSIONS</button></div>
+ <div class="galleryGrid" id="galleryGrid"></div>
+ <div class="galleryOwner"><label class="gold ownerButton">＋ OWNER: ADD GALLERY PICTURES<input type="file" accept="image/*" multiple onchange="addGallery(event)"></label><small>Owner photos stay available in this browser until connected to the future online admin system.</small></div>
 </section>
 
-<section class="reviews" id="reviews">
-  <div class="review-head">→ &nbsp; What Our Clients Say &nbsp; ★★★★★</div>
-  <div class="review-grid">
-    <div class="review"><span class="avatar">👩🏾</span><b>Mekdes T.</b><p>“The best salon in Addis! The team is amazing and the service is top-notch.”</p><strong>★★★★★</strong></div>
-    <div class="review"><span class="avatar">👩🏽</span><b>Selam G.</b><p>“I always leave Maya feeling beautiful and confident. Highly recommended!”</p><strong>★★★★★</strong></div>
-    <div class="review"><span class="avatar">👩🏾</span><b>Birukhan A.</b><p>“Professional, clean, and luxurious. I love everything about this place.”</p><strong>★★★★★</strong></div>
-  </div>
-</section>
+<section class="reviews" id="reviews"><div class="reviewTitle">★ WHAT OUR CLIENTS SAY ★</div><div class="reviewGrid"><div><span>👩🏾</span><b>Mekdes T.</b><p>“The best salon in Addis! The team is amazing and the service is top-notch.”</p><strong>★★★★★</strong></div><div><span>👩🏽</span><b>Selam G.</b><p>“I always leave Maya feeling beautiful and confident. Highly recommended!”</p><strong>★★★★★</strong></div><div><span>👩🏾</span><b>Birukhan A.</b><p>“Professional, clean and luxurious. I love everything about this place.”</p><strong>★★★★★</strong></div></div></section>
 
-<section class="about" id="about">
-  <div><span>THE MAYA EXPERIENCE</span><h2>Where Ethiopian elegance<br>meets modern beauty.</h2><p>✨ A warm, private and luxurious beauty experience designed around you. From everyday self-care to your biggest celebration, Maya brings premium beauty care together with the warmth and elegance of Ethiopia.</p></div>
-  <div class="about-points"><div>01 <b>Professional<br>Team</b></div><div>02 <b>Premium<br>Products</b></div><div>03 <b>Clean &amp; Safe<br>Salon</b></div></div>
-</section>
+<section class="about" id="about"><div><span>THE MAYA EXPERIENCE</span><h2>Where Ethiopian elegance<br>meets modern beauty. 🇪🇹</h2><p>✨ A warm, private and luxurious beauty experience designed around you. From everyday self-care to your biggest celebration, Maya brings premium beauty care together with the warmth and elegance of Ethiopia.</p></div><div class="numbers"><div><b>01</b><span>PROFESSIONAL<br>TEAM</span></div><div><b>02</b><span>PREMIUM<br>PRODUCTS</span></div><div><b>03</b><span>CLEAN &amp; SAFE<br>SALON</span></div></div></section>
 
-<section class="contact" id="contact">
-  <div><span>CONNECT WITH MAYA</span><h2>Stay in our<br>beauty circle. ✨</h2><p>Follow us for new looks, special offers, bridal inspiration and salon moments.</p></div>
-  <div class="contact-social"><a href="#">◎ Instagram</a><a href="#">♪ TikTok</a><a href="#">f Facebook</a><a href="#">➤ Telegram</a><a href="#">◔ WhatsApp</a></div>
-</section>
-
-<footer><div class="footer-social">◎ &nbsp; ♪ &nbsp; f &nbsp; ➤ &nbsp; ◔</div><div class="footer-brand">♛ MAYA BEAUTY SALON &amp; HAIR<br><small>Look Good &nbsp; • &nbsp; Feel Good &nbsp; • &nbsp; Be You</small></div><div>Your Beauty&nbsp; • &nbsp; Our Passion ♥</div></footer>
-<script src="app.js"></script>
-</body></html>
+<section class="contact" id="contact"><div><span>CONNECT WITH MAYA</span><h2>Stay in our<br>beauty circle. ✨</h2><p>Follow us for new looks, offers, bridal inspiration and salon moments.</p></div><div class="socialButtons"><a href="#">◎ Instagram</a><a href="#">♪ TikTok</a><a href="#">f Facebook</a><a href="#">➤ Telegram</a><a href="#">◔ WhatsApp</a></div></section>
+</main>
+<footer><div class="footerLogo"><img src="assets/maya-luxury-logo.svg"></div><div class="footSocial">◎ &nbsp; ♪ &nbsp; f &nbsp; ➤ &nbsp; ◔</div><div>YOUR BEAUTY • OUR PASSION ♥<br><small>© MAYA Beauty Salon &amp; Hair • Addis Ababa, Ethiopia</small></div></footer>
+<script src="app.js"></script></body></html>

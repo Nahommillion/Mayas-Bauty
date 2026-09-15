@@ -1,5 +1,6 @@
 services:
-  - type: static
+  - type: web
     name: maya-beauty-salon
+    runtime: static
     buildCommand: ""
     staticPublishPath: .

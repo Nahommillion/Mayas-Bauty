@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+    <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090705"/><stop offset=".5" stop-color="#6d5122"/><stop offset="1" stop-color="#f0c65a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#fff3b0" stop-opacity=".35"/><stop offset="1" stop-color="#fff3b0" stop-opacity="0"/></radialGradient></defs>
+    <rect width="900" height="620" fill="url(#bg)"/><circle cx="720" cy="150" r="250" fill="url(#glow)"/>
+    <circle cx="170" cy="500" r="230" fill="#000" opacity=".28"/>
+    <text x="450" y="235" text-anchor="middle" font-size="150">💄</text>
+    <text x="450" y="385" text-anchor="middle" fill="#fff7df" font-family="Georgia,serif" font-size="62" font-weight="700" letter-spacing="4">MAKEUP</text>
+    <text x="450" y="430" text-anchor="middle" fill="#f7d778" font-family="Arial,sans-serif" font-size="20" letter-spacing="5">BRIDAL • GLAM • EVENTS</text>
+    <path d="M330 470h240" stroke="#f2ca54" stroke-width="3"/><text x="450" y="510" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="18">MAYA • ADDIS ABABA</text></svg>
