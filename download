@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+maya_salon.db
+.DS_Store

@@ -1,19 +1,33 @@
-# Maya Beauty Salon & Hair
+# Maya Beauty Salon & Hair — Render Ready
 
 Luxury Ethiopian beauty-salon website + synchronized Telegram reservation bot.
 
-## Features
-- Luxury responsive women's beauty-salon design
-- English + Amharic service labels
-- Hair, human hair, braids, manicure, pedicure, nail art, makeup, lashes, brows, facial and spa
-- Online reservation form
-- Shared SQLite database
-- Telegram reservation flow and admin notifications
-- Admin reservation dashboard
-- Animated CSS/SVG salon graphics
-- Social-media buttons ready for the real accounts
+## IMPORTANT PROJECT STRUCTURE
 
-## Run
+Keep this structure exactly. Do NOT put `index.html` in the repository root.
+
+```
+maya-beauty-salon/
+├── app.py
+├── config.py
+├── db.py
+├── telegram_bot.py
+├── requirements.txt
+├── render.yaml
+├── .env.example
+├── README.md
+├── templates/
+│   ├── index.html
+│   └── admin.html
+└── static/
+    ├── style.css
+    └── images/
+        ├── ethiopian-pattern.svg
+        └── luxury-salon.svg
+```
+
+## Local run
+
 ```bash
 python -m venv .venv
 # Windows
@@ -21,19 +35,54 @@ python -m venv .venv
 pip install -r requirements.txt
 python app.py
 ```
+
 Open http://127.0.0.1:5000
 
-## Telegram
-Create a bot with BotFather, copy `.env.example` to `.env`, then set:
-TELEGRAM_BOT_TOKEN=...
-ADMIN_CHAT_ID=...
-SALON_PHONE=...
+## Render web service
 
-Run:
-```bash
+Build Command:
+
+```text
+pip install -r requirements.txt
+```
+
+Start Command:
+
+```text
+gunicorn app:app --bind 0.0.0.0:$PORT
+```
+
+## Render environment variables
+
+Add these to the Web Service and Telegram Worker:
+
+```text
+DATABASE_URL=your Render PostgreSQL internal connection string
+TELEGRAM_BOT_TOKEN=your Telegram bot token
+ADMIN_CHAT_ID=your Telegram admin chat ID
+FLASK_SECRET=a-long-random-secret
+```
+
+`DATABASE_URL` is used for PostgreSQL on Render. If it is not set locally,
+the app falls back to `maya_salon.db` for local development.
+
+## Telegram worker
+
+Use a separate Render Background Worker:
+
+```text
+Build Command:
+pip install -r requirements.txt
+
+Start Command:
 python telegram_bot.py
 ```
 
-Website and Telegram use the same `maya_salon.db`, so bookings are synchronized.
+The website and Telegram bot use the same PostgreSQL database when
+`DATABASE_URL` is configured, so reservations are synchronized.
 
-Edit social URLs in `config.py`.
+## GitHub warning
+
+If GitHub currently shows `index.html`, `admin.html`, and `style.css` in the
+repository root, do not leave them there. Put the HTML files in `templates/`
+and the CSS/images in `static/` as shown above.
