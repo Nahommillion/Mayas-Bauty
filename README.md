@@ -1,18 +1,18 @@
-# MAYA Beauty Salon & Hair — Luxury Reference V2
+# MAYA Beauty Salon & Hair — Complete Luxury Website
 
-Website-only static build. No Flask, Python, database, or Telegram bot.
+This is a **website-only** static build. It does not use Flask, Python, SQLite, Gunicorn or Telegram.
 
-## Render
-Create **New → Static Site**.
-- Repository: this folder
+## Deploy to Render
+Create **New → Static Site** and connect this repository.
 - Build Command: leave blank
 - Publish Directory: `.`
+- No environment variables are required for this visual/static stage.
 
-## Design
-The homepage is deliberately built around the supplied reference: black hero, gold/white typography, Ethiopian side accents, rounded gold buttons, compact six-card services, detailed booking panel, gallery, reviews, social buttons and luxury logo.
+## Important
+The design is based on the supplied reference screenshot: warm cream background, editorial serif typography, champagne-gold accents, compact navigation, large hero composition, floating labels, luxury service cards, gallery, booking panel, reviews, social buttons and an elegant MAYA logo.
 
-## Owner photos
-Every service has its own **OWNER: ADD PHOTOS** control. The gallery also has an owner upload control. These currently preview/store pictures in the visitor's browser only. A true owner/admin upload system shared across devices will be added when the backend is introduced.
+## Owner photo controls
+Every service card has its own photo-add control, and the gallery has an owner gallery upload control. In this static stage, uploaded images preview in the current browser. Permanent uploads visible to every customer require the backend/admin storage stage.
 
-## Social links
-Replace the `href="#"` values in `index.html` with the salon's real Instagram, TikTok, Facebook, Telegram and WhatsApp URLs.
+## Social media
+Replace the `href="#"` values in `index.html` with the salon's real Instagram, TikTok, Facebook, Telegram and WhatsApp links.

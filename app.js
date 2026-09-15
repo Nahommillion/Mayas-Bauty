@@ -1,10 +1,31 @@
-const date=document.getElementById("date");if(date)date.min=new Date().toISOString().slice(0,10);
-function toggleMenu(){document.getElementById("navlinks").classList.toggle("open")}
-function chooseService(s){const el=document.getElementById("service");if(el){el.value=[...el.options].find(o=>o.textContent.includes(s))?.value||""}document.getElementById("booking").scrollIntoView({behavior:"smooth"})}
-function book(e){e.preventDefault();document.getElementById("msg").textContent="✨ Thank you! Your appointment request is ready. Online confirmation + Telegram synchronization will be connected in the next stage."}
-function addPhotos(e,key,input){const files=[...e.target.files];const box=document.getElementById(key+"-photos");if(!box)return;files.forEach(f=>{const r=new FileReader();r.onload=()=>{const img=document.createElement("img");img.src=r.result;img.title=f.name;box.appendChild(img);let old=JSON.parse(localStorage.getItem("maya_"+key)||"[]");old.push(r.result);localStorage.setItem("maya_"+key,JSON.stringify(old.slice(-30)))};r.readAsDataURL(f)});input.value=""}
-function addGallery(e){const grid=document.getElementById("galleryGrid");[...e.target.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const t=document.createElement("div");t.className="galleryTile";t.dataset.cat="Owner";t.style.backgroundImage=`url("${r.result}")`;t.innerHTML="<span>✨ MAYA • OWNER PHOTO</span>";grid.prepend(t)};r.readAsDataURL(f)});e.target.value=""}
-const defaults=[["assets/hair.svg","Hair"],["assets/nails.svg","Nails"],["assets/makeup.svg","Makeup"],["assets/lashes.svg","Lashes"],["assets/spa.svg","Spa"],["assets/extensions.svg","Extensions"],["assets/hair.svg","Hair"],["assets/nails.svg","Nails"],["assets/makeup.svg","Makeup"],["assets/spa.svg","Spa"]];
-const grid=document.getElementById("galleryGrid");defaults.forEach(([src,cat])=>{const t=document.createElement("div");t.className="galleryTile";t.dataset.cat=cat;t.style.backgroundImage=`url("${src}")`;t.innerHTML=`<span>${cat} • MAYA BEAUTY</span>`;grid.appendChild(t)});
-document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");const f=b.dataset.filter;document.querySelectorAll(".galleryTile").forEach(x=>x.style.display=(f==="all"||x.dataset.cat===f)?"block":"none")}));
-document.querySelectorAll(".card").forEach((c,i)=>{c.style.opacity=0;c.style.transform="translateY(18px)";const ob=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){c.style.transition="all .65s ease";c.style.opacity=1;c.style.transform="none";ob.disconnect()}}));ob.observe(c)});
+const d=document.getElementById("date"); if(d)d.min=new Date().toISOString().slice(0,10);
+
+function pick(name){
+  const select=document.getElementById("service");
+  [...select.options].forEach(o=>{if(o.textContent.toLowerCase().includes(name.toLowerCase())) select.value=o.value});
+  document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+function submitBooking(e){
+  e.preventDefault();
+  document.getElementById("bookingMsg").textContent="✨ Appointment request received. Online confirmation will be connected when the booking backend is added.";
+}
+function filterGallery(cat,btn){
+  document.querySelectorAll(".gallery-filters button").forEach(x=>x.classList.remove("selected"));btn.classList.add("selected");
+  document.querySelectorAll(".gallery-item").forEach(x=>x.style.display=(cat==="all"||x.classList.contains(cat))?"block":"none");
+}
+function servicePhotos(e,id){
+  const box=document.getElementById(id);
+  [...e.target.files].forEach(file=>{
+    const r=new FileReader();r.onload=()=>{const im=document.createElement("img");im.src=r.result;box.appendChild(im)};
+    r.readAsDataURL(file);
+  }); e.target.value="";
+}
+function galleryPhotos(e){
+  const grid=document.getElementById("galleryGrid");
+  [...e.target.files].forEach(file=>{
+    const r=new FileReader();r.onload=()=>{const div=document.createElement("div");div.className="gallery-item owner-photo";div.innerHTML=`<img src="${r.result}"><span>✨ MAYA • Owner Photo</span>`;grid.appendChild(div)};
+    r.readAsDataURL(file);
+  }); e.target.value="";
+}
+const io=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add("show");io.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>io.observe(x));

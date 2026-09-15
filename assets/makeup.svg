@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
-    <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090705"/><stop offset=".5" stop-color="#6d5122"/><stop offset="1" stop-color="#f0c65a"/></linearGradient>
-    <radialGradient id="glow"><stop stop-color="#fff3b0" stop-opacity=".35"/><stop offset="1" stop-color="#fff3b0" stop-opacity="0"/></radialGradient></defs>
-    <rect width="900" height="620" fill="url(#bg)"/><circle cx="720" cy="150" r="250" fill="url(#glow)"/>
-    <circle cx="170" cy="500" r="230" fill="#000" opacity=".28"/>
-    <text x="450" y="235" text-anchor="middle" font-size="150">💄</text>
-    <text x="450" y="385" text-anchor="middle" fill="#fff7df" font-family="Georgia,serif" font-size="62" font-weight="700" letter-spacing="4">MAKEUP</text>
-    <text x="450" y="430" text-anchor="middle" fill="#f7d778" font-family="Arial,sans-serif" font-size="20" letter-spacing="5">BRIDAL • GLAM • EVENTS</text>
-    <path d="M330 470h240" stroke="#f2ca54" stroke-width="3"/><text x="450" y="510" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="18">MAYA • ADDIS ABABA</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#11100e"/><stop offset=".52" stop-color="#6e5338"/><stop offset="1" stop-color="#d2aa6a"/></linearGradient><radialGradient id="r"><stop stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<rect width="900" height="650" fill="f0d6cf"/><circle cx="720" cy="130" r="240" fill="#fff" opacity=".2"/><circle cx="720" cy="130" r="220" fill="url(#r)"/>
+<path d="M0 530 C180 410 280 610 470 490 S760 410 900 530 V650 H0Z" fill="url(#g)" opacity=".82"/>
+<text x="450" y="300" text-anchor="middle" font-size="145">💄</text>
+<text x="450" y="405" text-anchor="middle" font-family="Georgia,serif" font-size="58" letter-spacing="5" fill="#fff">MAKEUP</text>
+<text x="450" y="447" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" letter-spacing="3" fill="#f8dfaa">Bridal • Glam • Events • Photoshoot</text>
+<path d="M365 485h170" stroke="#f0c36b" stroke-width="2"/>
+<text x="450" y="525" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" letter-spacing="4" fill="#fff">MAYA • ADDIS ABABA • ETHIOPIA</text>
+</svg>
