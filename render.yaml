@@ -1,28 +1,5 @@
 services:
-  - type: web
+  - type: static
     name: maya-beauty-salon
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
-    envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: TELEGRAM_BOT_TOKEN
-        sync: false
-      - key: ADMIN_CHAT_ID
-        sync: false
-      - key: FLASK_SECRET
-        generateValue: true
-
-  - type: worker
-    name: maya-beauty-telegram-bot
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python telegram_bot.py
-    envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: TELEGRAM_BOT_TOKEN
-        sync: false
-      - key: ADMIN_CHAT_ID
-        sync: false
+    buildCommand: ""
+    staticPublishPath: .

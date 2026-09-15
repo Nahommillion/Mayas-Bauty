@@ -1,8 +1,184 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{salon_name}} | Luxury Ethiopian Beauty</title><link rel="stylesheet" href="/static/style.css"></head>
-<body><header class="nav"><a class="brand" href="#home"><span class="mark">M</span><span>MAYA<br><small>BEAUTY SALON & HAIR</small></span></a><nav><a href="#services">Services</a><a href="#story">About</a><a href="#booking">Book</a><a href="#contact">Contact</a></nav><a class="navbook" href="#booking">Book Appointment</a></header>
-<section id="home" class="hero"><div><p class="eyebrow">ADDIS ABABA • ETHIOPIA</p><h1>Where <em>beauty</em><br>becomes a signature.</h1><p class="lead">Luxury hair, nails, beauty and self-care for the woman who deserves her own spotlight.</p><p><a class="gold" href="#booking">Reserve Your Moment</a> <a class="text" href="#services">Explore Services ↓</a></p><p class="trust">✦ Elegant. Personal. Ethiopian. ✦</p></div><div class="heroart"><div class="halo"></div><div class="portrait"><img src="/static/images/luxury-salon.svg" alt="Luxury salon illustration"></div><div class="float f1">NAILS<br><b>♡</b></div><div class="float f2">HAIR<br><b>✦</b></div></div></section>
-<div class="marquee">MANICURE ✦ PEDICURE ✦ HUMAN HAIR ✦ BRAIDS ✦ MAKEUP ✦ LASHES ✦ SPA ✦ MANICURE ✦ PEDICURE ✦</div>
-<section id="services" class="section"><div class="head"><p class="eyebrow">OUR SIGNATURE MENU</p><h2>Beauty, curated for you.</h2><p>From a polished manicure to a complete hair transformation.</p></div><div class="grid">{% for s in services %}<article class="service"><div class="icon">{% if s.category=='Nails' %}✧{% elif s.category=='Hair' %}◌{% elif s.category=='Beauty' %}♡{% else %}☾{% endif %}</div><p class="cat">{{s.category}}</p><h3>{{s.name}}</h3><p class="am">{{s.am}}</p><span>{{s.price}}</span></article>{% endfor %}</div></section>
-<section id="story" class="story section"><div><img src="/static/images/ethiopian-pattern.svg" alt="Ethiopian-inspired luxury pattern"></div><div><p class="eyebrow">THE MAYA EXPERIENCE</p><h2>Soft luxury. Bold confidence.</h2><p>Designed for Ethiopian women who want an elevated, warm and unmistakably local salon experience. Every visit is a chance to slow down, refresh and leave feeling unforgettable.</p><div class="stats"><div><b>01</b><span>Personal service</span></div><div><b>02</b><span>Luxury atmosphere</span></div><div><b>03</b><span>Beauty expertise</span></div></div></div></section>
-<section id="booking" class="booking section"><div><p class="eyebrow">RESERVE YOUR APPOINTMENT</p><h2>Your beauty time is waiting.</h2><p>Choose your service and preferred time. The request can also be sent directly to the salon's Telegram admin.</p><div class="pill">✈ Telegram synchronized reservations</div></div><form class="form" method="post" action="/reserve">{% with messages=get_flashed_messages(with_categories=true) %}{% for cat,msg in messages %}<div class="notice {{cat}}">{{msg}}</div>{% endfor %}{% endwith %}<div class="two"><label>Full name<input name="name" required placeholder="Your name"></label><label>Phone<input name="phone" required placeholder="+251 ..."></label></div><label>Service<select name="service" required><option value="">Choose your service</option>{% for s in services %}<option>{{s.name}}</option>{% endfor %}</select></label><div class="two"><label>Date<input type="date" name="date" required></label><label>Time<select name="time" required>{% for t in ["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00"] %}<option>{{t}}</option>{% endfor %}</select></label></div><label>Special request<textarea name="note" rows="3" placeholder="Hair length, nail style, occasion..."></textarea></label><button class="gold full">Request Reservation ✦</button></form></section>
-<section id="contact" class="contact section"><div><p class="eyebrow">CONNECT WITH MAYA</p><h2>Stay in our beauty circle.</h2><p>Update the real social accounts in <code>config.py</code>.</p></div><div class="socials">{% for n,u in socials.items() %}<a href="{{u}}" target="_blank">{{n|capitalize}} ↗</a>{% endfor %}</div></section><footer>© Maya Beauty Salon & Hair <span>Made for beauty in Ethiopia 🇪🇹</span></footer><script>const d=document.querySelector('input[type=date]');if(d)d.min=new Date().toISOString().slice(0,10);const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.08});document.querySelectorAll('.service,.story>div').forEach(x=>o.observe(x));</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0806">
+  <meta name="description" content="Maya Beauty Salon & Hair — luxury beauty, hair, nails, makeup, lashes, brows, facial and spa in Addis Ababa.">
+  <title>MAYA Beauty Salon & Hair | Addis Ababa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="gold-dust" aria-hidden="true"></div>
+  <div class="side-pattern left" aria-hidden="true"></div>
+  <div class="side-pattern right" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Maya Beauty Salon & Hair home">
+      <span class="brand-mark">♛</span>
+      <span class="brand-word">MAYA <small>BEAUTY SALON &amp; HAIR</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a class="active" href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang" type="button" title="Language">🇪🇹 <span>EN</span>⌄</button>
+      <a class="appointment-btn" href="#booking">📅 &nbsp;Book Appointment</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <div class="script">Welcome to</div>
+        <h1>MAYA</h1>
+        <div class="hero-sub">BEAUTY SALON &amp; HAIR</div>
+        <div class="amharic">የእርስዎ ውበት፣ የእኛ ስራ</div>
+        <p>Premium beauty services, luxurious care,<br>for your unique beauty.</p>
+        <a class="primary-btn" href="#booking">📅 &nbsp;Book Your Appointment <span>→</span></a>
+      </div>
+      <div class="hero-quote reveal">
+        <div>Beauty<br><i>is a form of</i><br>self-respect</div>
+        <span>♥</span>
+      </div>
+      <div class="social-rail" aria-label="Social links">
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="TikTok">♪</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Telegram">➤</a>
+        <a href="#" aria-label="WhatsApp">◔</a>
+      </div>
+      <div class="hero-sparkle s1">✦</div><div class="hero-sparkle s2">✧</div><div class="hero-sparkle s3">·</div>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="section-heading reveal">
+        <div class="line"></div><h2>Our Services</h2><div class="line"></div>
+        <p>Look Good &nbsp;•&nbsp; Feel Good &nbsp;•&nbsp; Be You</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/nails.jpg')"></div>
+          <div class="service-icon">💅</div>
+          <span class="service-kicker">NAILS</span><h3>Nails</h3><div class="am">የጥፍር አገልግሎት</div>
+          <ul><li>Manicure</li><li>Pedicure</li><li>Nail Art</li><li>Gel Nails</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/hair.jpg')"></div>
+          <div class="service-icon">👩🏾‍🦱</div>
+          <span class="service-kicker">HAIR</span><h3>Hair</h3><div class="am">የፀጉር አገልግሎት</div>
+          <ul><li>Human Hair</li><li>Braids</li><li>Styling</li><li>Wash &amp; Care</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/makeup.jpg')"></div>
+          <div class="service-icon">💄</div>
+          <span class="service-kicker">MAKEUP</span><h3>Makeup</h3><div class="am">የሜካፕ አገልግሎት</div>
+          <ul><li>Professional Makeup</li><li>Bridal Makeup</li><li>Special Events</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/lashes.jpg')"></div>
+          <div class="service-icon">👁️</div>
+          <span class="service-kicker">LASHES &amp; BROWS</span><h3>Lashes &amp; Brows</h3><div class="am">የዓይን ሽፋሽፍት እና ቅንድብ</div>
+          <ul><li>Eyelash Extensions</li><li>Eyebrow Shaping</li><li>Tinting</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/facial.jpg')"></div>
+          <div class="service-icon">🌿</div>
+          <span class="service-kicker">FACIAL &amp; SPA</span><h3>Facial &amp; Spa</h3><div class="am">የፊት እና ስፓ አገልግሎት</div>
+          <ul><li>Deep Cleansing</li><li>Skin Care</li><li>Relaxing Spa</li><li>Massage</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-image" style="background-image:url('assets/extensions.jpg')"></div>
+          <div class="service-icon">💇🏾‍♀️</div>
+          <span class="service-kicker">EXTENSIONS &amp; WIGS</span><h3>Hair Extensions &amp; Wigs</h3><div class="am">የፀጉር ማስገቢያ እና ዊግ</div>
+          <ul><li>Human Hair</li><li>Wigs</li><li>Custom Orders</li><li>Care</li></ul>
+          <a href="#booking">Learn More &nbsp;→</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-band" id="about">
+      <div class="feature-photo"></div>
+      <div class="feature-copy reveal">
+        <span class="eyebrow">THE MAYA EXPERIENCE</span>
+        <h2>Where Ethiopian elegance<br>meets modern beauty.</h2>
+        <p>✨ A warm, private and luxurious salon experience designed around you. From everyday self-care to your biggest celebration, our beauty team helps you feel polished, confident and unforgettable.</p>
+        <div class="mini-stats">
+          <div><b>01</b><span>Professional<br>&amp; Experienced Team</span></div>
+          <div><b>02</b><span>Premium<br>Beauty Products</span></div>
+          <div><b>03</b><span>Clean &amp; Safe<br>Environment</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="section-heading reveal"><div class="line"></div><h2>Beauty Gallery</h2><div class="line"></div><p>✨ Moments of Maya ✨</p></div>
+      <div class="gallery-grid">
+        <div class="gallery-tile tall reveal" style="background-image:url('assets/hair.jpg')"><span>Hair Transformations</span></div>
+        <div class="gallery-tile reveal" style="background-image:url('assets/nails.jpg')"><span>Nail Art</span></div>
+        <div class="gallery-tile reveal" style="background-image:url('assets/makeup.jpg')"><span>Makeup</span></div>
+        <div class="gallery-tile wide reveal" style="background-image:url('assets/facial.jpg')"><span>Relax &amp; Glow</span></div>
+      </div>
+    </section>
+
+    <section class="booking section" id="booking">
+      <div class="booking-photo"></div>
+      <div class="booking-copy reveal">
+        <span class="eyebrow">📅 RESERVE YOUR APPOINTMENT</span>
+        <h2>Your beauty time<br>is waiting.</h2>
+        <p>Choose your service, date and preferred time. It's quick, elegant and easy. Online booking will be connected to the Maya Telegram reservation system next.</p>
+        <div class="booking-features"><span>✨ Personal service</span><span>💎 Premium care</span><span>🇪🇹 Addis Ababa</span></div>
+        <form class="booking-form" onsubmit="event.preventDefault(); showBookingMessage();">
+          <div class="field-row">
+            <label>Full Name<input required placeholder="Your name"></label>
+            <label>Phone<input required placeholder="+251 ..."></label>
+          </div>
+          <div class="field-row">
+            <label>Service<select required><option value="">Choose a service</option><option>💅 Nails</option><option>👩🏾‍🦱 Hair</option><option>💄 Makeup</option><option>👁️ Lashes & Brows</option><option>🌿 Facial & Spa</option><option>💇🏾‍♀️ Extensions & Wigs</option></select></label>
+            <label>Date<input type="date" required></label>
+          </div>
+          <label>Special Request<textarea rows="3" placeholder="Tell us what you would like ✨"></textarea></label>
+          <button class="primary-btn full" type="submit">💖 Request Appointment <span>→</span></button>
+          <div id="booking-message" class="booking-message"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-card reveal">
+        <span class="eyebrow">CONNECT WITH MAYA</span>
+        <h2>Stay in our<br>beauty circle. ✨</h2>
+        <p>Follow Maya for new looks, special offers, bridal inspiration and salon moments.</p>
+        <div class="contact-buttons">
+          <a href="#">📸 Instagram</a><a href="#">🎵 TikTok</a><a href="#">f Facebook</a><a href="#">✈️ Telegram</a><a href="#">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="location-card reveal">
+        <span>📍</span><h3>Addis Ababa</h3><p>Ethiopia 🇪🇹</p><small>Luxury beauty • Warm service • Your confidence</small></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">♛ MAYA <small>BEAUTY SALON &amp; HAIR</small></div>
+    <div>© 2026 Maya Beauty Salon &amp; Hair</div>
+    <div>Your Beauty&nbsp; • &nbsp;Our Passion ♥</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
